@@ -38,7 +38,9 @@ class SearchFormField extends GetView<HomeController> {
             child: TextFormField(
               cursorColor: AppColors.darkGrey,
               controller: controller.searchEditingController,
-              onChanged: (value) {},
+              onChanged: (value) {
+                controller.sweetSearch();
+              },
               decoration: const InputDecoration(
                 hintText: 'Search',
                 isDense: true,

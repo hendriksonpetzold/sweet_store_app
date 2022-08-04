@@ -8,6 +8,20 @@ import 'package:sweets_store_app/style/app_images.dart';
 class HomeController extends GetxController {
   TextEditingController searchEditingController = TextEditingController();
   RxString selectedLocation = RxString('Vegas');
+  RxList searchSweetCardList = RxList([]);
+
+  @override
+  void onInit() {
+    searchSweetCardList.value = sweetCardList;
+    super.onInit();
+  }
+
+  void sweetSearch() {
+    List<SweetCardModel> newList = sweetCardList
+        .where((item) => item.sweetName.contains(searchEditingController.text))
+        .toList();
+    searchSweetCardList.value = newList;
+  }
 
   List<SweetCardModel> sweetCardList = [
     SweetCardModel(

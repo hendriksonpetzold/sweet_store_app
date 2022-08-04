@@ -9,21 +9,23 @@ class GridListView extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return MasonryGridView.count(
-      crossAxisCount: 2,
-      mainAxisSpacing: 10,
-      crossAxisSpacing: 10,
-      itemCount: controller.sweetCardList.length,
-      itemBuilder: (context, index) {
-        final list = controller.sweetCardList[index];
-        return SweetCard(
-          productName: list.sweetName,
-          productPrice: list.price,
-          productImage: list.sweetImage,
-          cardColor: list.color,
-          index: index,
-        );
-      },
-    );
+    return Obx(() {
+      return MasonryGridView.count(
+        crossAxisCount: 2,
+        mainAxisSpacing: 10,
+        crossAxisSpacing: 10,
+        itemCount: controller.searchSweetCardList.length,
+        itemBuilder: (context, index) {
+          final list = controller.searchSweetCardList[index];
+          return SweetCard(
+            productName: list.sweetName,
+            productPrice: list.price,
+            productImage: list.sweetImage,
+            cardColor: list.color,
+            index: index,
+          );
+        },
+      );
+    });
   }
 }
