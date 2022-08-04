@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sweets_store_app/style/app_colors.dart';
-import 'package:sweets_store_app/style/app_images.dart';
 
 class SweetCard extends StatelessWidget {
   final String productName;
@@ -34,7 +33,7 @@ class SweetCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  padding: const EdgeInsets.only(top: 8),
+                  padding: const EdgeInsets.only(top: 8, left: 8, right: 8),
                   height: index % 2 == 1 ? 130 : 80,
                   width: double.infinity,
                   child: Image(

@@ -1,8 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:sweets_store_app/pages/home/home_controller.dart';
 import 'package:sweets_store_app/style/app_colors.dart';
 
-class CarouselPromotions extends StatelessWidget {
+class CarouselPromotions extends GetView<HomeController> {
   const CarouselPromotions({Key? key}) : super(key: key);
 
   @override
@@ -10,18 +12,19 @@ class CarouselPromotions extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: CarouselSlider.builder(
-        itemCount: 3,
+        itemCount: controller.promotionCardList.length,
         options: CarouselOptions(
           height: MediaQuery.of(context).size.height * .15,
-          autoPlay: false,
+          autoPlay: true,
           viewportFraction: 1,
         ),
         itemBuilder: (context, index, realIndex) {
+          final list = controller.promotionCardList[index];
           return Container(
             margin: const EdgeInsets.only(left: 2, right: 2),
             width: double.infinity,
             decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 179, 209, 223),
+              color: list.color,
               borderRadius: BorderRadius.circular(15),
             ),
             child: Row(
@@ -29,7 +32,7 @@ class CarouselPromotions extends StatelessWidget {
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.only(
-                      left: 32,
+                      left: 16,
                       top: 32,
                       right: 16,
                     ),
@@ -38,19 +41,19 @@ class CarouselPromotions extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         RichText(
-                          text: const TextSpan(
+                          text: TextSpan(
                             children: [
                               TextSpan(
-                                text: '15%',
-                                style: TextStyle(
-                                  color: AppColors.focusTextColor,
+                                text: '${list.discount}% ',
+                                style: const TextStyle(
+                                  color: Colors.redAccent,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
                               ),
                               TextSpan(
-                                text: ' for all cakes',
-                                style: TextStyle(
+                                text: list.productDiscounted,
+                                style: const TextStyle(
                                   color: AppColors.titleTextColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
@@ -59,9 +62,9 @@ class CarouselPromotions extends StatelessWidget {
                             ],
                           ),
                         ),
-                        const Text(
-                          'for our regular costumers',
-                          style: TextStyle(
+                        Text(
+                          list.subTitle,
+                          style: const TextStyle(
                             color: AppColors.titleTextColor,
                             fontSize: 13,
                           ),
@@ -71,7 +74,14 @@ class CarouselPromotions extends StatelessWidget {
                   ),
                 ),
                 Expanded(
-                  child: Container(),
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 8, bottom: 8),
+                    child: Image(
+                      image: AssetImage(
+                        list.image,
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),
