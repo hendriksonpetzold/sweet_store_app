@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:sweets_store_app/components/app_button.dart';
 import 'package:sweets_store_app/pages/on_boarding/components/sub_title_custom_text.dart';
 import 'package:sweets_store_app/pages/on_boarding/components/title_custom_text.dart';
@@ -37,17 +38,20 @@ class OnBoardingPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(40),
                 ),
                 child: Column(
-                  children: const [
-                    TitleCustomText(),
-                    SizedBox(
+                  children: [
+                    const TitleCustomText(),
+                    const SizedBox(
                       height: 16,
                     ),
-                    SubTitleCustomText(),
-                    SizedBox(
+                    const SubTitleCustomText(),
+                    const SizedBox(
                       height: 16,
                     ),
                     AppButton(
                       label: 'It\'s wonderful',
+                      onTap: () {
+                        Get.toNamed('/home_page');
+                      },
                     ),
                   ],
                 ),
