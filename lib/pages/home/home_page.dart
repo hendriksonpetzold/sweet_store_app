@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:sweets_store_app/pages/home/components/carousel_promotions.dart';
 import 'package:sweets_store_app/pages/home/components/custom_app_bar.dart';
@@ -14,42 +15,48 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.only(left: 24, right: 24),
-          child: Column(
-            children: const [
-              CustomAppBar(),
-              SizedBox(
-                height: 16,
-              ),
-              SearchFormField(),
-              SizedBox(
-                height: 24,
-              ),
-              CarouselPromotions(),
-              SizedBox(
-                height: 24,
-              ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  'Popular sweets',
-                  style: TextStyle(
-                    color: AppColors.titleTextColor,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: const SystemUiOverlayStyle(
+        statusBarIconBrightness: Brightness.dark,
+        statusBarBrightness: Brightness.light,
+      ),
+      child: Scaffold(
+        body: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.only(left: 24, right: 24),
+            child: Column(
+              children: const [
+                CustomAppBar(),
+                SizedBox(
+                  height: 16,
+                ),
+                SearchFormField(),
+                SizedBox(
+                  height: 24,
+                ),
+                CarouselPromotions(),
+                SizedBox(
+                  height: 24,
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Popular sweets',
+                    style: TextStyle(
+                      color: AppColors.titleTextColor,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
-              ),
-              SizedBox(
-                height: 24,
-              ),
-              Expanded(
-                child: GridListView(),
-              ),
-            ],
+                SizedBox(
+                  height: 24,
+                ),
+                Expanded(
+                  child: GridListView(),
+                ),
+              ],
+            ),
           ),
         ),
       ),
