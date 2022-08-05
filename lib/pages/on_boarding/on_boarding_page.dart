@@ -48,6 +48,7 @@ class OnBoardingPage extends StatelessWidget {
                       height: 16,
                     ),
                     AppButton(
+                      haveIcon: false,
                       label: 'It\'s wonderful',
                       onTap: () {
                         Get.toNamed('/home_page');

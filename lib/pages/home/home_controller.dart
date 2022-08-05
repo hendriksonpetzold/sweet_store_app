@@ -8,7 +8,7 @@ import 'package:sweets_store_app/style/app_images.dart';
 class HomeController extends GetxController {
   TextEditingController searchEditingController = TextEditingController();
   RxString selectedLocation = RxString('Vegas');
-  RxList searchSweetCardList = RxList([]);
+  RxList<SweetCardModel> searchSweetCardList = RxList([]);
 
   @override
   void onInit() {
@@ -27,7 +27,7 @@ class HomeController extends GetxController {
     SweetCardModel(
       sweetName: 'Lollipop',
       sweetImage: AppImages.lollipop,
-      price: '1,50',
+      price: '1.50',
       servings: '1 serving',
       kcal: '80',
       preparationTime: '0mim',
@@ -36,7 +36,7 @@ class HomeController extends GetxController {
     SweetCardModel(
       sweetName: 'Cupcakes',
       sweetImage: AppImages.cupcake,
-      price: '6,00',
+      price: '6.00',
       servings: '2 serving',
       kcal: '360',
       preparationTime: '25mim',
@@ -45,16 +45,16 @@ class HomeController extends GetxController {
     SweetCardModel(
       sweetName: 'Donuts',
       sweetImage: AppImages.donuts,
-      price: '10,50',
+      price: '10.50',
       servings: '5 serving',
       kcal: '600',
       preparationTime: '40mim',
-      color: const Color(0XFFffdbd2),
+      color: const Color(0xFFFFDBD2),
     ),
     SweetCardModel(
       sweetName: 'Macaroons',
       sweetImage: AppImages.macaroons,
-      price: '8,00',
+      price: '8.00',
       servings: '2 serving',
       kcal: '240',
       preparationTime: '20mim',
@@ -63,7 +63,7 @@ class HomeController extends GetxController {
     SweetCardModel(
       sweetName: 'Brownie',
       sweetImage: AppImages.brownie,
-      price: '2,50',
+      price: '2.50',
       servings: '1 serving',
       kcal: '150',
       preparationTime: '15mim',
@@ -72,7 +72,7 @@ class HomeController extends GetxController {
     SweetCardModel(
       sweetName: 'Strawberry Cake',
       sweetImage: AppImages.strawberryCake,
-      price: '4,50',
+      price: '4.50',
       servings: '1 serving',
       kcal: '350',
       preparationTime: '10mim',
@@ -81,7 +81,7 @@ class HomeController extends GetxController {
     SweetCardModel(
       sweetName: 'Chocolate Cake',
       sweetImage: AppImages.chocolateCake,
-      price: '4,50',
+      price: '4.50',
       servings: '1 serving',
       kcal: '450',
       preparationTime: '10mim',
