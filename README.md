@@ -1,6 +1,12 @@
-# sweets_store_app
+# Sweet Store App
+## Demo
 
-A new Flutter project.
+
+<p >
+  <img width="300" height="600" src="assets/to_readme/sweet_app_gif.gif" >
+</p>
+
+## Inspiration: https://dribbble.com/shots/17724456-Sweets-Store-App
 
 ## Getting Started
 
